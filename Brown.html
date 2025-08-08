@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Futures - Empowering Youth for a Brighter Future</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
+            color: #1a202c; /* Default dark text for readability */
+        }
+        /* Custom styles for better aesthetics and specific colors */
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+        }
+        .btn-primary {
+            background-color: #3b82f6; /* Blue */
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600; /* font-semibold */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb; /* Darker Blue */
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: #f97316; /* Orange */
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #ea580c; /* Darker Orange */
+            transform: translateY(-2px);
+        }
+        .section-title {
+            color: #1f2937; /* Blackish text for titles */
+            font-size: 2.5rem; /* text-4xl */
+            font-weight: 800; /* font-extrabold */
+            margin-bottom: 2rem; /* mb-8 */
+            text-align: center;
+        }
+        .text-blue { color: #3b82f6; } /* Blue */
+        .text-red { color: #ef4444; } /* Red */
+        .text-orange { color: #f97316; } /* Orange */
+        .text-lime { color: #84cc16; } /* Lime */
+        .bg-blue-gradient {
+            background: linear-gradient(to right, #3b82f6, #60a5fa); /* Light blue gradient */
+        }
+        .bg-orange-gradient {
+            background: linear-gradient(to right, #f97316, #fb923c); /* Orange gradient */
+        }
+        .bg-lime-gradient {
+            background: linear-gradient(to right, #84cc16, #a3e635); /* Lime gradient */
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #3b82f6; /* Blue spinner */
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Custom scroll-behavior for smooth scrolling to sections */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-extrabold text-blue-600">Youth Futures</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">About Us</a>
+                <a href="#challenge" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">R20 Challenge</a>
+                <a href="#mission" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Our Mission</a>
+                <a href="#idea-generator" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Business Ideas</a>
+                <a href="#blog" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Blog</a>
+                <a href="#resources" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Resources</a>
+                <a href="#jobs" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Job Board</a>
+                <a href="#events" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Events</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Contact</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 focus:outline-none" aria-label="Open mobile menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section with R20 Hope Challenge Announcement -->
+       <img src="job.jpg"> 
+       <alt h2 class="text-3xl md:text-5xl font-extrabold leading-tight text-black"> A Car wash business owner</h2>
+    <section id="home" class="relative bg-blue-gradient text-white py-20 px-4 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <!-- Background pattern for visual interest -->
+            <svg class="w-full h-full" fill="none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <pattern id="pattern-circles" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.2)"></circle>
+                </pattern>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+            </svg>
+        </div>
+        <div class="container mx-auto text-center relative z-10">
+            <div class="max-w-4xl mx-auto card p-8 md:p-12 text-gray-800">
+                <div class="flex items-center justify-center mb-6">
+                    <span class="text-5xl md:text-6xl mr-4">🌍</span>
+                    <h1 class="text-3xl md:text-5xl font-extrabold leading-tight text-blue">ANNOUNCEMENT: R20 HOPE CHALLENGE IS NOW ON FACEBOOK! 🙌</h1>
+                </div>
+                <p class="text-lg md:text-xl mb-6 leading-relaxed">
+                    Hi fam! I’m excited to share that we’ve just launched the official Facebook page for the <span class="font-bold text-orange">#R20HopeChallenge</span> — a movement where people donate just R20, do a good deed, and tag 3 friends to do the same.
+                </p>
+                <p class="text-lg md:text-xl mb-8 leading-relaxed">
+                    The goal? Fight youth unemployment by funding small business ideas and training young people — starting with <span class="font-bold text-lime">Eswatini 🇸🇿</span>.
+                </p>
+                <p class="text-lg md:text-xl mb-8 leading-relaxed">
+                    📲 Please LIKE & FOLLOW the page here:
+                </p>
+                <a href="https://www.facebook.com/profile.php?id=61577186571212" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center space-x-2 text-lg md:text-xl hover:scale-105 transform transition-transform duration-300">
+                    <span>👉 Follow us on Facebook</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C17.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <ul class="text-left mt-8 space-y-3 text-lg md:text-xl text-gray-700">
+                    <li class="flex items-center"><span class="text-lime mr-3 text-2xl">✅</span> All updates</li>
+                    <li class="flex items-center"><span class="text-lime mr-3 text-2xl">✅</span> Donation progress</li>
+                    <li class="flex items-center"><span class="text-lime mr-3 text-2xl">✅</span> Youth success stories</li>
+                    <li class="flex items-center"><span class="text-lime mr-3 text-2xl">✅</span> Transparent reports</li>
+                    <li class="flex items-center"><span class="text-lime mr-3 text-2xl">…</span> will be posted there.</li>
+                </ul>
+                <p class="text-lg md:text-xl mt-8 leading-relaxed">
+                    If you believe in helping others grow, please share this link with 3 friends or family groups 🙏🏾.
+                </p>
+                <p class="text-2xl md:text-3xl font-bold mt-8 text-blue">
+                    Let’s change lives together — one R20 at a time.
+                </p>
+                <p class="text-xl md:text-2xl font-semibold mt-4 text-orange">
+                    #R20HopeChallenge
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-blue">About Our Organization</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12">
+                We are dedicated to empowering unemployed youth by providing them with the skills, resources, and opportunities they need to thrive in today's economy. Our programs focus on practical training, mentorship, and fostering entrepreneurial spirit to create a brighter future for young individuals.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="card p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-3">Our Vision</h3>
+                    <p class="text-gray-700">A world where every young person has the opportunity to achieve their full potential and contribute meaningfully to society.</p>
+                </div>
+                <div class="card p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold text-orange-700 mb-3">Our Values</h3>
+                    <p class="text-gray-700">Empowerment, Integrity, Community, Innovation, and Sustainability drive everything we do.</p>
+                </div>
+                <div class="card p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold text-lime-700 mb-3">Our Impact</h3>
+                    <p class="text-gray-700">Transforming lives through tangible skills, job placements, and successful business startups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section id="mission" class="py-16 px-4 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-red">Our Mission</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12">
+                Our mission is to equip unemployed youth with essential life skills, vocational training, and entrepreneurial guidance, enabling them to secure sustainable employment or launch their own successful businesses. We aim to reduce youth unemployment rates and foster economic independence within communities, starting with Eswatini.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6 mt-12">
+                <div class="card p-6 flex flex-col items-center text-center w-full md:w-1/3 lg:w-1/4 transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Skills Training</h3>
+                    <p class="text-gray-700">Providing relevant and in-demand skills for the job market.</p>
+                </div>
+                <div class="card p-6 flex flex-col items-center text-center w-full md:w-1/3 lg:w-1/4 transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-orange-500 mb-4">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.55 23.55 0 0112 15c-1.685 0-3.35-.147-5-.425V4.255a23.55 23.55 0 0110 0v9z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Entrepreneurship</h3>
+                    <p class="text-gray-700">Nurturing innovative business ideas and providing startup support.</p>
+                </div>
+                <div class="card p-6 flex flex-col items-center text-center w-full md:w-1/3 lg:w-1/4 transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-lime-500 mb-4">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2m2-2a4 4 0 100-8m2 8a4 4 0 110-8m-2 8h2m-3 0h3M14 12a4 4 0 100-8m2 8a4 4 0 110-8m-2 8h2m-3 0h3m-3 0h3"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Community Support</h3>
+                    <p class="text-gray-700">Building strong networks and providing ongoing mentorship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Idea Generator Section -->
+    <section id="idea-generator" class="py-16 px-4 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-orange">✨ Business Idea Generator ✨</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
+                Unleash your entrepreneurial spirit! Tell us your interests, skills, or available resources, and we'll help you brainstorm some small business ideas.
+            </p>
+            <div class="max-w-2xl mx-auto card p-8">
+                <div class="space-y-6">
+                    <div>
+                        <label for="businessIdeaInput" class="block text-sm font-medium text-gray-700 text-left mb-1">What are you interested in or good at? (e.g., "cooking", "crafts", "digital marketing", "gardening")</label>
+                        <textarea id="businessIdeaInput" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Tell us about your passions, skills, or resources..."></textarea>
+                    </div>
+                    <button id="generateIdeaBtn" class="btn-primary w-full flex items-center justify-center space-x-2">
+                        <span id="buttonText">Generate Ideas</span>
+                        <div id="loadingSpinner" class="hidden loading-spinner"></div>
+                    </button>
+                    <div id="ideaOutput" class="mt-8 p-6 bg-blue-50 rounded-lg text-left text-gray-800 border border-blue-200 hidden">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-4">Here are some ideas for you:</h3>
+                        <div id="generatedContent" class="prose max-w-none">
+                            <!-- Generated content will be inserted here -->
+                        </div>
+                    </div>
+                     <div id="errorMessage" class="mt-4 p-4 bg-red-100 text-red-700 rounded-md border border-red-300 hidden">
+                        An error occurred while generating ideas. Please try again later.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog / News Section -->
+    <section id="blog" class="py-16 px-4 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-lime">Latest News & Stories</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12">
+                Stay updated with our latest initiatives, success stories, and relevant news in youth empowerment.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <div class="card p-6 text-left transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/3b82f6/FFFFFF?text=Success+Story+1" alt="Youth success story" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">From Job Seeker to Business Owner: Thandi's Journey</h3>
+                    <p class="text-gray-700 text-sm mb-3">Posted on July 20, 2024</p>
+                    <p class="text-gray-700 text-base line-clamp-3">Read about Thandi, who transformed her passion for baking into a thriving catering business with our support and training...</p>
+                    <a href="#" class="text-orange-600 hover:underline font-medium mt-3 inline-block">Read More &rarr;</a>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="card p-6 text-left transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/f97316/FFFFFF?text=Workshop+Update" alt="Workshop update" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold text-orange-700 mb-2">Highlights from Our Digital Skills Workshop</h3>
+                    <p class="text-gray-700 text-sm mb-3">Posted on July 15, 2024</p>
+                    <p class="text-gray-700 text-base line-clamp-3">Our recent workshop on digital marketing skills saw over 50 enthusiastic participants. Learn what they gained...</p>
+                    <a href="#" class="text-blue-600 hover:underline font-medium mt-3 inline-block">Read More &rarr;</a>
+                </div>
+                <!-- Blog Post 3 -->
+                <div class="card p-6 text-left transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/84cc16/000000?text=Community+Impact" alt="Community impact" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold text-lime-700 mb-2">Community Impact: How Your R20 Makes a Difference</h3>
+                    <p class="text-gray-700 text-sm mb-3">Posted on July 10, 2024</p>
+                    <p class="text-gray-700 text-base line-clamp-3">Discover the tangible impact of the R20 Hope Challenge on local communities and youth projects...</p>
+                    <a href="#" class="text-red-600 hover:underline font-medium mt-3 inline-block">Read More &rarr;</a>
+                </div>
+            </div>
+            <button class="btn-secondary mt-12">View All Articles</button>
+        </div>
+    </section>
+
+    <!-- Resource Library Section -->
+    <section id="resources" class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-orange">Resource Library</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12">
+                Access free guides, templates, and tutorials to help you on your journey to employment or entrepreneurship.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Resource 1 -->
+                <div class="card p-6 text-left transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">CV & Cover Letter Writing Guide</h3>
+                    <p class="text-gray-700 text-base mb-3">Comprehensive guide to crafting compelling job applications.</p>
+                    <a href="#" class="text-orange-600 hover:underline font-medium inline-block">Download Guide (PDF) &rarr;</a>
+                </div>
+                <!-- Resource 2 -->
+                <div class="card p-6 text-left transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-orange-700 mb-2">Interview Skills Handbook</h3>
+                    <p class="text-gray-700 text-base mb-3">Tips and tricks to ace your next job interview.</p>
+                    <a href="#" class="text-blue-600 hover:underline font-medium inline-block">Download Handbook (PDF) &rarr;</a>
+                </div>
+                <!-- Resource 3 -->
+                <div class="card p-6 text-left transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-lime-700 mb-2">Starting Your Small Business Checklist</h3>
+                    <p class="text-gray-700 text-base mb-3">A step-by-step guide for budding entrepreneurs.</p>
+                    <a href="#" class="text-red-600 hover:underline font-medium inline-block">Download Checklist (PDF) &rarr;</a>
+                </div>
+                <!-- Resource 4 -->
+                <div class="card p-6 text-left transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-red-700 mb-2">Financial Literacy Basics</h3>
+                    <p class="text-gray-700 text-base mb-3">Understand budgeting, saving, and basic financial management.</p>
+                    <a href="#" class="text-lime-600 hover:underline font-medium inline-block">Access Course (Online) &rarr;</a>
+                </div>
+            </div>
+            <button class="btn-primary mt-12">Explore All Resources</button>
+        </div>
+    </section>
+
+    <!-- Job Board Section -->
+    <section id="jobs" class="py-16 px-4 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-blue">Job Opportunities</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12">
+                Find the latest job openings, internships, and volunteer positions tailored for youth.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Job Listing 1 -->
+                <div class="card p-6 text-left flex items-start space-x-4 transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex-shrink-0 text-blue-500">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a2 2 0 00-2 2v3H4a2 2 0 00-2 2v8a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2h-4V4a2 2 0 00-2-2h-4zm0 2h4v3h-4V4z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-700 mb-1">Junior Web Developer (Internship)</h3>
+                        <p class="text-gray-700 text-sm mb-2">Tech Solutions Inc. | Mbabane, Eswatini</p>
+                        <p class="text-gray-600 text-base line-clamp-2">Seeking a motivated intern to join our web development team. Basic knowledge of HTML, CSS, and JavaScript required...</p>
+                        <a href="#" class="text-orange-600 hover:underline font-medium mt-2 inline-block">Apply Now &rarr;</a>
+                    </div>
+                </div>
+                <!-- Job Listing 2 -->
+                <div class="card p-6 text-left flex items-start space-x-4 transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex-shrink-0 text-orange-500">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 11a4 4 0 100-8 4 4 0 000 8z"></path><path fill-rule="evenodd" d="M12 14c-4.418 0-8 2.239-8 5v2h16v-2c0-2.761-3.582-5-8-5z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-orange-700 mb-1">Retail Sales Assistant (Part-time)</h3>
+                        <p class="text-gray-700 text-sm mb-2">Fashion Hub Store | Manzini, Eswatini</p>
+                        <p class="text-gray-600 text-base line-clamp-2">Energetic individual needed for customer service and sales. No experience necessary, training provided...</p>
+                        <a href="#" class="text-blue-600 hover:underline font-medium mt-2 inline-block">Apply Now &rarr;</a>
+                    </div>
+                </div>
+                <!-- Job Listing 3 -->
+                <div class="card p-6 text-left flex items-start space-x-4 transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex-shrink-0 text-lime-500">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm4 0h-2V7h2v6z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-lime-700 mb-1">Agricultural Volunteer</h3>
+                        <p class="text-gray-700 text-sm mb-2">Green Farms Initiative | Rural Eswatini</p>
+                        <p class="text-gray-600 text-base line-clamp-2">Gain hands-on experience in sustainable farming. Perfect for those interested in agriculture and community development...</p>
+                        <a href="#" class="text-red-600 hover:underline font-medium mt-2 inline-block">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-secondary mt-12">View All Jobs</button>
+        </div>
+    </section>
+
+    <!-- Event Calendar Section -->
+    <section id="events" class="py-16 px-4 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-red">Upcoming Events</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12">
+                Join our workshops, training sessions, and community gatherings designed to boost your skills and network.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="card p-6 text-left flex flex-col transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center text-blue-600 mb-3">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5H4v9h16V7h-2v1a1 1 0 10-2 0V7H8v1a1 1 0 10-2 0V7z" clip-rule="evenodd"></path></svg>
+                        <span class="font-semibold text-lg">August 5, 2024</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Youth Entrepreneurship Bootcamp</h3>
+                    <p class="text-gray-700 text-base mb-3">Location: Mbabane Civic Centre</p>
+                    <p class="text-gray-600 text-base line-clamp-3">A 3-day intensive bootcamp covering business planning, marketing, and funding for aspiring young entrepreneurs.</p>
+                    <a href="#" class="text-orange-600 hover:underline font-medium mt-auto inline-block">Register Now &rarr;</a>
+                </div>
+                <!-- Event 2 -->
+                <div class="card p-6 text-left flex flex-col transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center text-orange-600 mb-3">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5H4v9h16V7h-2v1a1 1 0 10-2 0V7H8v1a1 1 0 10-2 0V7z" clip-rule="evenodd"></path></svg>
+                        <span class="font-semibold text-lg">September 10, 2024</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-orange-700 mb-2">Career Fair & Networking Event</h3>
+                    <p class="text-gray-700 text-base mb-3">Location: Manzini Exhibition Centre</p>
+                    <p class="text-gray-600 text-base line-clamp-3">Connect with potential employers, learn about various industries, and expand your professional network.</p>
+                    <a href="#" class="text-blue-600 hover:underline font-medium mt-auto inline-block">Learn More &rarr;</a>
+                </div>
+                <!-- Event 3 -->
+                <div class="card p-6 text-left flex flex-col transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center text-lime-600 mb-3">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5H4v9h16V7h-2v1a1 1 0 10-2 0V7H8v1a1 1 0 10-2 0V7z" clip-rule="evenodd"></path></svg>
+                        <span class="font-semibold text-lg">October 1, 2024</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-lime-700 mb-2">Financial Literacy Workshop</h3>
+                    <p class="text-gray-700 text-base mb-3">Location: Online Webinar</p>
+                    <p class="text-gray-600 text-base line-clamp-3">Master personal finance basics, budgeting, and saving strategies in this interactive online session.</p>
+                    <a href="#" class="text-red-600 hover:underline font-medium mt-auto inline-block">Register Now &rarr;</a>
+                </div>
+            </div>
+            <button class="btn-primary mt-12">View All Events</button>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-black">Get in Touch</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
+                Have questions, want to partner, or just want to say hello! We'd love to hear from you!
+            </p>
+            <div class="max-w-xl mx-auto card p-8">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 text-left mb-1">Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 text-left mb-1">Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="your@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 text-left mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8 px-4">
+        <div class="container mx-auto text-center text-sm">
+            <p>&copy; 2024 Youth Futures. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-blue-400 transition-colors duration-200">Privacy Policy</a>
+                <a href="#" class="hover:text-blue-400 transition-colors duration-200">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Business Idea Generator (Gemini API Integration)
+        document.getElementById('generateIdeaBtn').addEventListener('click', async () => {
+            const inputElement = document.getElementById('businessIdeaInput');
+            const outputElement = document.getElementById('ideaOutput');
+            const generatedContentElement = document.getElementById('generatedContent');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const buttonText = document.getElementById('buttonText');
+            const errorMessage = document.getElementById('errorMessage');
+
+            const prompt = inputElement.value.trim();
+
+            // Clear previous output and hide error message
+            generatedContentElement.innerHTML = '';
+            outputElement.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+
+            if (!prompt) {
+                generatedContentElement.innerHTML = '<p class="text-red-500">Please enter your interests or skills to generate ideas.</p>';
+                outputElement.classList.remove('hidden');
+                return;
+            }
+
+            // Show loading spinner and disable button
+            buttonText.textContent = 'Generating...';
+            loadingSpinner.classList.remove('hidden');
+            document.getElementById('generateIdeaBtn').disabled = true;
+
+            try {
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: `Generate 3-5 small business ideas for a young person in Eswatini interested in: ${prompt}. For each idea, provide a brief description and potential target audience. Format the output as a clear, readable list.` }] });
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // Canvas will provide this API key at runtime
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    // Replace newlines with <br> for proper display in HTML
+                    generatedContentElement.innerHTML = text.replace(/\n/g, '<br>');
+                    outputElement.classList.remove('hidden');
+                } else {
+                    errorMessage.classList.remove('hidden');
+                    console.error('Gemini API response structure unexpected:', result);
+                }
+            } catch (error) {
+                errorMessage.classList.remove('hidden');
+                console.error('Error calling Gemini API:', error);
+            } finally {
+                // Hide loading spinner and re-enable button
+                buttonText.textContent = 'Generate Ideas';
+                loadingSpinner.classList.add('hidden');
+                document.getElementById('generateIdeaBtn').disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
